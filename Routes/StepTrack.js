@@ -92,7 +92,6 @@ router.delete('/deletestepentry', authTokenHandler, async (req, res) => {
 });
 
 
-
 router.get('/getusergoalsteps', authTokenHandler, async (req, res) => {
     const userId = req.userId;
     const user = await User.findById({ _id: userId });

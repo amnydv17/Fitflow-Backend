@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 
+
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -14,7 +15,6 @@ const transporter = nodemailer.createTransport({
         pass: 'sqwhihgeohexgjhq'
     }
 })
-
 
 router.get('/test', async (req, res) => {
     res.json({
@@ -71,7 +71,6 @@ router.post('/register', async (req, res, next) => {
         next(err);
     }
 })
-
 router.post('/login', async (req, res, next) => {
     try {
         const { email, password } = req.body;
@@ -98,7 +97,6 @@ router.post('/login', async (req, res, next) => {
         next(err);
     }
 })
-
 router.post('/sendotp', async (req, res) => {
     try {
         const { email } = req.body;
@@ -124,15 +122,12 @@ router.post('/sendotp', async (req, res) => {
         next(err);
     }
 })
-
 router.post('/checklogin', authTokenHandler, async (req, res, next) => {
     res.json({
         ok: true,
         message: 'User authenticated successfully'
     })
 })
-
-
 router.use(errorHandler)
 
 module.exports = router;
