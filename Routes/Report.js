@@ -8,7 +8,7 @@ const User = require('../Models/UserSchema');
 require('dotenv').config();
 
 
-function createResponse(ok, message, data) {
+function createResponse(ok, message, data){
     return {
         ok,
         message,
@@ -180,12 +180,12 @@ router.get('/getreport', authTokenHandler, async (req, res) => {
             goal : goalWeight,
             unit : "kg",
         },
-        {
-            name : "Height",
-            value : height,
-            goal : "",
-            unit : "cm",
-        },
+        // {
+        //     name : "Height",
+        //     value : height,
+        //     goal : "",
+        //     unit : "cm",
+        // },
     ]
 
     res.json(createResponse(true, 'Report', tempResponse));
